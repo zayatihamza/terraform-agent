@@ -1,0 +1,80 @@
+{
+  "description": "cloudstack_vpn_customer_gateway\n\nCreates a site to site VPN local customer gateway.",
+  "example_usage": "Basic usage:\n\nresource \"cloudstack_vpn_customer_gateway\" \"default\" {\n  name       = \"test-vpc\"\n  cidr       = \"10.0.0.0/8\"\n  esp_policy = \"aes256-sha1;modp1024\"\n  gateway    = \"192.168.0.1\"\n  ike_policy = \"aes256-sha1;modp1024\"\n  ipsec_psk  = \"terraform\"\n}",
+  "argument_reference": [
+    {
+      "name": "name",
+      "required": true,
+      "description": "The name of the VPN Customer Gateway."
+    },
+    {
+      "name": "cidr",
+      "required": true,
+      "description": "The CIDR block that needs to be routed through this gateway."
+    },
+    {
+      "name": "esp_policy",
+      "required": true,
+      "description": "The ESP policy to use for this VPN Customer Gateway."
+    },
+    {
+      "name": "gateway",
+      "required": true,
+      "description": "The public IP address of the related VPN Gateway."
+    },
+    {
+      "name": "ike_policy",
+      "required": true,
+      "description": "The IKE policy to use for this VPN Customer Gateway."
+    },
+    {
+      "name": "ipsec_psk",
+      "required": true,
+      "description": "The IPSEC pre-shared key used for this gateway."
+    },
+    {
+      "name": "dpd",
+      "required": false,
+      "description": "If DPD is enabled for the related VPN connection (defaults false)"
+    },
+    {
+      "name": "esp_lifetime",
+      "required": false,
+      "description": "The ESP lifetime of phase 2 VPN connection to this VPN Customer Gateway in seconds (defaults 86400)"
+    },
+    {
+      "name": "ike_lifetime",
+      "required": false,
+      "description": "The IKE lifetime of phase 2 VPN connection to this VPN Customer Gateway in seconds (defaults 86400)"
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to create this VPN Customer Gateway in. Changing this forces a new resource to be created."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ID of the VPN Customer Gateway."
+    },
+    {
+      "name": "dpd",
+      "required": false,
+      "description": "Enable or disable DPD is enabled for the related VPN connection."
+    },
+    {
+      "name": "esp_lifetime",
+      "required": false,
+      "description": "The ESP lifetime of phase 2 VPN connection to this VPN Customer Gateway."
+    },
+    {
+      "name": "ike_lifetime",
+      "required": false,
+      "description": "The IKE lifetime of phase 2 VPN connection to this VPN Customer Gateway."
+    }
+  ],
+  "import": "VPN customer gateways can be imported; use <VPN CUSTOMER GATEWAY ID> as the import ID. For example:\n\nterraform import cloudstack_vpn_customer_gateway.default 741a7fca-1d05-4bb6-9290-1008300f0e5aWhen importing into a project you need to prefix the import ID with the project name:\n\nterraform import cloudstack_vpn_customer_gateway.default my-project/741a7fca-1d05-4bb6-9290-1008300f0e5a",
+  "resource": "cloudstack_vpn_customer_gateway"
+}

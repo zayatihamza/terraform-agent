@@ -1,0 +1,60 @@
+{
+  "description": "cloudstack_vpc\n\nCreates a VPC.",
+  "example_usage": "Basic usage:\n\nresource \"cloudstack_vpc\" \"default\" {\n  name         = \"test-vpc\"\n  cidr         = \"10.0.0.0/16\"\n  vpc_offering = \"Default VPC Offering\"\n  zone         = \"zone-1\"\n}",
+  "argument_reference": [
+    {
+      "name": "name",
+      "required": true,
+      "description": "The name of the VPC."
+    },
+    {
+      "name": "display_text",
+      "required": false,
+      "description": "The display text of the VPC."
+    },
+    {
+      "name": "cidr",
+      "required": true,
+      "description": "The CIDR block for the VPC. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "vpc_offering",
+      "required": true,
+      "description": "The name or ID of the VPC offering to use for this VPC. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "network_domain",
+      "required": false,
+      "description": "The default DNS domain for networks created in this VPC. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to deploy this instance to. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "zone",
+      "required": true,
+      "description": "The name or ID of the zone where this disk volume will be available. Changing this forces a new resource to be created."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ID of the VPC."
+    },
+    {
+      "name": "display_text",
+      "required": false,
+      "description": "The display text of the VPC."
+    },
+    {
+      "name": "source_nat_ip",
+      "required": false,
+      "description": "The source NAT IP assigned to the VPC."
+    }
+  ],
+  "import": "VPCs can be imported; use <VPC ID> as the import ID. For example:\n\nterraform import cloudstack_vpc.default 84b23264-917a-4712-b8bf-cd7604db43b0When importing into a project you need to prefix the import ID with the project name:\n\nterraform import cloudstack_vpc.default my-project/84b23264-917a-4712-b8bf-cd7604db43b0",
+  "resource": "cloudstack_vpc"
+}

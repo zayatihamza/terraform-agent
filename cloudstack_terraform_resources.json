@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "total_resources": 0,
+    "failed_count": 0,
+    "scrape_date": "2025-07-23 15:42:01",
+    "base_url": "https://registry.terraform.io/providers/CloudAnts/cloudstack/latest/docs"
+  },
+  "resources": {},
+  "failed_urls": []
+}

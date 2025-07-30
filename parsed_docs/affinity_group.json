@@ -1,0 +1,40 @@
+{
+  "description": "cloudstack_affinity_group\n\nCreates an affinity group.",
+  "example_usage": "resource \"cloudstack_affinity_group\" \"default\" {\n  name = \"test-affinity-group\"\n  type = \"host anti-affinity\"\n}",
+  "argument_reference": [
+    {
+      "name": "name",
+      "required": true,
+      "description": "The name of the affinity group. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "description": "The description of the affinity group."
+    },
+    {
+      "name": "type",
+      "required": true,
+      "description": "The affinity group type. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to register this affinity group to. Changing this forces a new resource to be created."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The id of the affinity group."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "description": "The description of the affinity group."
+    }
+  ],
+  "import": "Affinity groups can be imported; use <AFFINITY GROUP ID> as the import ID. For example:\n\nterraform import cloudstack_affinity_group.default 6226ea4d-9cbe-4cc9-b30c-b9532146da5bWhen importing into a project you need to prefix the import ID with the project name:\n\nterraform import cloudstack_affinity_group.default my-project/6226ea4d-9cbe-4cc9-b30c-b9532146da5b",
+  "resource": "affinity_group"
+}

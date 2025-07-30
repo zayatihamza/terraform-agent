@@ -1,0 +1,69 @@
+{
+  "description": "cloudstack_network_acl_rule\n\nCreates network ACL rules for a given network ACL.",
+  "example_usage": "resource \"cloudstack_network_acl_rule\" \"default\" {\n  acl_id = \"f3843ce0-334c-4586-bbd3-0c2e2bc946c6\"\n\n  rule {\n    action       = \"allow\"\n    cidr_list    = [\"10.0.0.0/8\"]\n    protocol     = \"tcp\"\n    ports        = [\"80\", \"1000-2000\"]\n    traffic_type = \"ingress\"\n  }\n}",
+  "argument_reference": [
+    {
+      "name": "acl_id",
+      "required": true,
+      "description": "The network ACL ID for which to create the rules. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "managed",
+      "required": false,
+      "description": "USE WITH CAUTION! If enabled all the firewall rules for this network ACL will be managed by this resource. This means it will delete all firewall rules that are not in your config! (defaults false)"
+    },
+    {
+      "name": "rule",
+      "required": false,
+      "description": "Can be specified multiple times. Each rule block supports fields documented below. If managed = false at least one rule is required!"
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to deploy this instance to. Changing this forces a new resource to be created. parallelism (Optional) Specifies how much rules will be created or deleted concurrently. (defaults 2) The rule block supports:"
+    },
+    {
+      "name": "action",
+      "required": false,
+      "description": "The action for the rule. Valid options are: allow and deny (defaults allow)."
+    },
+    {
+      "name": "cidr_list",
+      "required": true,
+      "description": "A CIDR list to allow access to the given ports."
+    },
+    {
+      "name": "protocol",
+      "required": true,
+      "description": "The name of the protocol to allow. Valid options are: tcp, udp, icmp, all or a valid protocol number."
+    },
+    {
+      "name": "icmp_type",
+      "required": false,
+      "description": "The ICMP type to allow, or -1 to allow any. This can only be specified if the protocol is ICMP. (defaults 0)"
+    },
+    {
+      "name": "icmp_code",
+      "required": false,
+      "description": "The ICMP code to allow, or -1 to allow any. This can only be specified if the protocol is ICMP. (defaults 0)"
+    },
+    {
+      "name": "ports",
+      "required": false,
+      "description": "List of ports and/or port ranges to allow. This can only be specified if the protocol is TCP, UDP, ALL or a valid protocol number."
+    },
+    {
+      "name": "traffic_type",
+      "required": false,
+      "description": "The traffic type for the rule. Valid options are: ingress or egress (defaults ingress)."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ACL ID for which the rules are created."
+    }
+  ],
+  "resource": "cloudstack_network_acl_rule"
+}

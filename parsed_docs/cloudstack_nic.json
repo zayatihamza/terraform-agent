@@ -1,0 +1,34 @@
+{
+  "description": "cloudstack_nic\n\nCreates an additional NIC to add a VM to the specified network.",
+  "example_usage": "Basic usage:\n\nresource \"cloudstack_nic\" \"test\" {\n  network_id         = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n  ip_address         = \"192.168.1.1\"\n  virtual_machine_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"\n}",
+  "argument_reference": [
+    {
+      "name": "network_id",
+      "required": true,
+      "description": "The ID of the network to plug the NIC into. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "ip_address",
+      "required": false,
+      "description": "The IP address to assign to the NIC. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "virtual_machine_id",
+      "required": true,
+      "description": "The ID of the virtual machine to which to attach the NIC. Changing this forces a new resource to be created."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ID of the NIC."
+    },
+    {
+      "name": "ip_address",
+      "required": false,
+      "description": "The assigned IP address."
+    }
+  ],
+  "resource": "cloudstack_nic"
+}

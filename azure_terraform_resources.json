@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "total_resources": 0,
+    "failed_count": 0,
+    "scrape_date": "2025-07-23 15:30:06",
+    "base_url": "https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs"
+  },
+  "resources": {},
+  "failed_urls": []
+}

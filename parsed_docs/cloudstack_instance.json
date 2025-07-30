@@ -1,0 +1,110 @@
+{
+  "description": "cloudstack_instance\n\nCreates and automatically starts a virtual machine based on a service offering, disk offering, and template.",
+  "example_usage": "resource \"cloudstack_instance\" \"web\" {\n  name             = \"server-1\"\n  service_offering = \"small\"\n  network_id       = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n  template         = \"CentOS 6.5\"\n  zone             = \"zone-1\"\n}",
+  "argument_reference": [
+    {
+      "name": "name",
+      "required": true,
+      "description": "The name of the instance."
+    },
+    {
+      "name": "display_name",
+      "required": false,
+      "description": "The display name of the instance."
+    },
+    {
+      "name": "service_offering",
+      "required": true,
+      "description": "The name or ID of the service offering used for this instance."
+    },
+    {
+      "name": "network_id",
+      "required": false,
+      "description": "The ID of the network to connect this instance to. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "ip_address",
+      "required": false,
+      "description": "The IP address to assign to this instance. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "template",
+      "required": true,
+      "description": "The name or ID of the template used for this instance. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "root_disk_size",
+      "required": false,
+      "description": "The size of the root disk in gigabytes. The root disk is resized on deploy. Only applies to template-based deployments. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "group",
+      "required": false,
+      "description": "The group name of the instance."
+    },
+    {
+      "name": "affinity_group_ids",
+      "required": false,
+      "description": "List of affinity group IDs to apply to this instance."
+    },
+    {
+      "name": "affinity_group_names",
+      "required": false,
+      "description": "List of affinity group names to apply to this instance."
+    },
+    {
+      "name": "security_group_ids",
+      "required": false,
+      "description": "List of security group IDs to apply to this instance. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "security_group_names",
+      "required": false,
+      "description": "List of security group names to apply to this instance. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to deploy this instance to. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "zone",
+      "required": true,
+      "description": "The name or ID of the zone where this instance will be created. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "start_vm",
+      "required": false,
+      "description": "This determines if the instances is started after it is created (defaults true)"
+    },
+    {
+      "name": "user_data",
+      "required": false,
+      "description": "The user data to provide when launching the instance. This can be either plain text or base64 encoded text."
+    },
+    {
+      "name": "keypair",
+      "required": false,
+      "description": "The name of the SSH key pair that will be used to access this instance."
+    },
+    {
+      "name": "expunge",
+      "required": false,
+      "description": "This determines if the instance is expunged when it is destroyed (defaults false)"
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The instance ID."
+    },
+    {
+      "name": "display_name",
+      "required": false,
+      "description": "The display name of the instance."
+    }
+  ],
+  "import": "Instances can be imported; use <INSTANCE ID> as the import ID. For example:\n\nterraform import cloudstack_instance.default 5cf69677-7e4b-4bf4-b868-f0b02bb72ee0When importing into a project you need to prefix the import ID with the project name:\n\nterraform import cloudstack_instance.default my-project/5cf69677-7e4b-4bf4-b868-f0b02bb72ee0",
+  "resource": "cloudstack_instance"
+}

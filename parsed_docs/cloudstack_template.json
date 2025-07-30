@@ -1,0 +1,59 @@
+{
+  "description": "cloudstack_template\n\nUse this datasource to get the ID of a template for use in other resources.",
+  "example_usage": "data \"cloudstack_template\" \"my_template\" {\n  template_filter = \"featured\"\n\n  filter {\n    name = \"name\"\n    value = \"CentOS 7\\\\.1\"\n  }\n\n  filter {\n    name = \"hypervisor\"\n    value = \"KVM\"\n  }\n}",
+  "argument_reference": [
+    {
+      "name": "template_filter",
+      "required": true,
+      "description": "The template filter. Possible values are featured, self, selfexecutable, sharedexecutable, executable and community (see the Cloudstack API listTemplate command documentation)."
+    },
+    {
+      "name": "filter",
+      "required": true,
+      "description": "One or more name/value pairs to filter off of. You can apply filters on any exported attributes."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The template ID."
+    },
+    {
+      "name": "account",
+      "required": false,
+      "description": "The account name to which the template belongs."
+    },
+    {
+      "name": "created",
+      "required": false,
+      "description": "The date this template was created."
+    },
+    {
+      "name": "display_text",
+      "required": false,
+      "description": "The template display text."
+    },
+    {
+      "name": "format",
+      "required": false,
+      "description": "The format of the template."
+    },
+    {
+      "name": "hypervisor",
+      "required": false,
+      "description": "The hypervisor on which the templates runs."
+    },
+    {
+      "name": "name",
+      "required": false,
+      "description": "The template name."
+    },
+    {
+      "name": "size",
+      "required": false,
+      "description": "The size of the template."
+    }
+  ],
+  "resource": "cloudstack_template"
+}

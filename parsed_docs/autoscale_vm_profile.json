@@ -1,0 +1,44 @@
+{
+  "description": "cloudstack_autoscale_vm_profile\n\nCreates an autoscale VM profile.",
+  "example_usage": "resource \"cloudstack_autoscale_vm_profile\" \"profile1\" {\n  service_offering        = \"small\"\n  template                = \"CentOS 6.5\"\n  zone                    = \"zone-1\"\n  destroy_vm_grace_period = \"45s\"\n\n  other_deploy_params = {\n    networkids  = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n    displayname = \"profile1vm\"\n  }\n\n  metadata = {\n    mydata = \"true\"\n  }\n}",
+  "argument_reference": [
+    {
+      "name": "service_offering",
+      "required": true,
+      "description": "The name or ID of the service offering used for instances. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "template",
+      "required": true,
+      "description": "The name or ID of the template used for instances."
+    },
+    {
+      "name": "zone",
+      "required": true,
+      "description": "The name or ID of the zone where instances will be created. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "destroy_vm_grace_period",
+      "required": false,
+      "description": "A time interval to wait for graceful shutdown of instances."
+    },
+    {
+      "name": "other_deploy_params",
+      "required": false,
+      "description": "A mapping of additional params used when creating new instances."
+    },
+    {
+      "name": "metadata",
+      "required": false,
+      "description": "A mapping of metadata key/values to assign to the resource."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The autoscale VM profile ID."
+    }
+  ],
+  "resource": "autoscale_vm_profile"
+}

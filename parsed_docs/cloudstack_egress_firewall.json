@@ -1,0 +1,54 @@
+{
+  "description": "cloudstack_egress_firewall\n\nCreates egress firewall rules for a given network.",
+  "example_usage": "resource \"cloudstack_egress_firewall\" \"default\" {\n  network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n\n  rule {\n    cidr_list = [\"10.0.0.0/8\"]\n    protocol  = \"tcp\"\n    ports     = [\"80\", \"1000-2000\"]\n  }\n}",
+  "argument_reference": [
+    {
+      "name": "network_id",
+      "required": true,
+      "description": "The network ID for which to create the egress firewall rules. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "managed",
+      "required": false,
+      "description": "USE WITH CAUTION! If enabled all the egress firewall rules for this network will be managed by this resource. This means it will delete all firewall rules that are not in your config! (defaults false)"
+    },
+    {
+      "name": "rule",
+      "required": false,
+      "description": "Can be specified multiple times. Each rule block supports fields documented below. If managed = false at least one rule is required! parallelism (Optional) Specifies how much rules will be created or deleted concurrently. (defaults 2) The rule block supports:"
+    },
+    {
+      "name": "cidr_list",
+      "required": true,
+      "description": "A CIDR list to allow access to the given ports."
+    },
+    {
+      "name": "protocol",
+      "required": true,
+      "description": "The name of the protocol to allow. Valid options are: tcp, udp and icmp."
+    },
+    {
+      "name": "icmp_type",
+      "required": false,
+      "description": "The ICMP type to allow. This can only be specified if the protocol is ICMP."
+    },
+    {
+      "name": "icmp_code",
+      "required": false,
+      "description": "The ICMP code to allow. This can only be specified if the protocol is ICMP."
+    },
+    {
+      "name": "ports",
+      "required": false,
+      "description": "List of ports and/or port ranges to allow. This can only be specified if the protocol is TCP or UDP."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The network ID for which the egress firewall rules are created."
+    }
+  ],
+  "resource": "cloudstack_egress_firewall"
+}

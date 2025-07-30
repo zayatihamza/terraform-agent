@@ -1,0 +1,30 @@
+{
+  "description": "cloudstack_security_group\n\nCreates a security group.",
+  "example_usage": "resource \"cloudstack_security_group\" \"default\" {\n  name        = \"allow_web\"\n  description = \"Allow access to HTTP and HTTPS\"\n}",
+  "argument_reference": [
+    {
+      "name": "name",
+      "required": true,
+      "description": "The name of the security group. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "description": "The description of the security group. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to create this security group in. Changing this forces a new resource to be created."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ID of the security group."
+    }
+  ],
+  "import": "Security groups can be imported; use <SECURITY GROUP ID> as the import ID. For example:\n\nterraform import cloudstack_security_group.default e54970f1-f563-46dd-a365-2b2e9b78c54bWhen importing into a project you need to prefix the import ID with the project name:\n\nterraform import cloudstack_security_group.default my-project/e54970f1-f563-46dd-a365-2b2e9b78c54b",
+  "resource": "cloudstack_security_group"
+}

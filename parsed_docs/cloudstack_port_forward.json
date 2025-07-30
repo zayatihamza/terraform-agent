@@ -1,0 +1,64 @@
+{
+  "description": "cloudstack_port_forward\n\nCreates port forwards.",
+  "example_usage": "resource \"cloudstack_port_forward\" \"default\" {\n  ip_address_id = \"30b21801-d4b3-4174-852b-0c0f30bdbbfb\"\n\n  forward {\n    protocol           = \"tcp\"\n    private_port       = 80\n    public_port        = 8080\n    virtual_machine_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"\n  }\n}",
+  "argument_reference": [
+    {
+      "name": "ip_address_id",
+      "required": true,
+      "description": "The IP address ID for which to create the port forwards. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "managed",
+      "required": false,
+      "description": "USE WITH CAUTION! If enabled all the port forwards for this IP address will be managed by this resource. This means it will delete all port forwards that are not in your config! (defaults false)"
+    },
+    {
+      "name": "project",
+      "required": false,
+      "description": "The name or ID of the project to create this port forward in. Changing this forces a new resource to be created."
+    },
+    {
+      "name": "forward",
+      "required": true,
+      "description": "Can be specified multiple times. Each forward block supports fields documented below. The forward block supports:"
+    },
+    {
+      "name": "protocol",
+      "required": true,
+      "description": "The name of the protocol to allow. Valid options are: tcp and udp."
+    },
+    {
+      "name": "private_port",
+      "required": true,
+      "description": "The private port to forward to."
+    },
+    {
+      "name": "public_port",
+      "required": true,
+      "description": "The public port to forward from."
+    },
+    {
+      "name": "virtual_machine_id",
+      "required": true,
+      "description": "The ID of the virtual machine to forward to."
+    },
+    {
+      "name": "vm_guest_ip",
+      "required": false,
+      "description": "The virtual machine IP address for the port forwarding rule (useful when the virtual machine has secondairy NICs or IP addresses)."
+    }
+  ],
+  "attributes_reference": [
+    {
+      "name": "id",
+      "required": false,
+      "description": "The ID of the IP address for which the port forwards are created."
+    },
+    {
+      "name": "vm_guest_ip",
+      "required": false,
+      "description": "The IP address of the virtual machine that is used for the port forwarding rule."
+    }
+  ],
+  "resource": "cloudstack_port_forward"
+}
